@@ -1,4 +1,4 @@
-package com.project.product_management.product_management;
+package com.project.product_management;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
