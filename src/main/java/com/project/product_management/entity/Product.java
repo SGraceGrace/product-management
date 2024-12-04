@@ -17,6 +17,9 @@ public class Product extends BaseEntity{
     @Column(name = "product_name")
     private String productName;
 
+    @Column(name = "product_type")
+    private String productType;
+
     @Column(name = "description")
     private String description;
 
@@ -25,9 +28,9 @@ public class Product extends BaseEntity{
 
     @ManyToMany
     @JoinTable(
-            name = "source_location",
+            name = "product_stocks",
             joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "source_company_id")
+            inverseJoinColumns = @JoinColumn(name = "stock_id")
     )
-    private Set<SourceCompany> sourceCompanies;
+    private Set<Stocks> stocks;
 }

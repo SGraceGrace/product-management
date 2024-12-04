@@ -5,17 +5,20 @@ import lombok.Data;
 
 import java.util.Set;
 
-@Entity
-@Table(name = "source_place")
 @Data
-public class SourceCompany extends BaseEntity{
+@Entity
+@Table(name = "warehouse")
+public class Warehouse extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "company_name")
-    private String companyName;
+    @Column(name = "warehouse_name")
+    private String warehouseName;
+
+    @Column(name = "manager")
+    private String manager;
 
     @Column(name = "phone_no")
     private String phoneNo;
@@ -29,6 +32,6 @@ public class SourceCompany extends BaseEntity{
     @Column(name = "country")
     private String country;
 
-    @OneToMany(mappedBy = "sourceCompany")
+    @OneToMany(mappedBy = "warehouse")
     private Set<Stocks> stocks;
 }

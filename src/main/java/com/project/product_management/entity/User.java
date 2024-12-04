@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "user")
 @Data
@@ -34,4 +36,7 @@ public class User extends BaseEntity{
     @Column(name = "status", nullable = false)
     @Enumerated(value = EnumType.STRING)
     private UserStatus status;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<AuditLog> auditLogs;
 }
